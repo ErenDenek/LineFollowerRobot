@@ -29,14 +29,14 @@ void averageCal()
 }
 
 
-int pid(int hedef_dgr, int dgr) {
+int pid(int target, int value) {
   float pidTerm;
-  int hata;
-  static int son_hata;
-  static int toplam_hata;
-  hata = hedef_dgr - dgr;
-  pidTerm = (hata) * kp + (hata - son_hata) * kd;
-  son_hata = hata;
+  int error;
+  static int last_error;
+  static int sum_error;
+  error = targer - value;
+  pidTerm = (error) * kp + (error - last_error) * kd;
+  last_error = error;
   return (int(pidTerm));
 }
 
